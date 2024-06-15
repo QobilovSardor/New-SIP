@@ -1,5 +1,22 @@
-import { NavbarDefault, NavbarHeaderDefault, NavbarHeaderModern, NavbarHeaderTwoPanel, NavbarHeaderTwoPanelModern, NavbarOpen, NavbarTwoPanel, OpenNavbarHeaderDefault, OpenNavbarHeaderModern } from "./components/Navbar";
-import { HeaderDefault, HeaderMenu, HeaderNavbar, HeaderNavbarTwoPanel, HeaderOpenNavbar, HeaderTwoPanel } from "./layouts/Header";
+import {
+  NavbarDefault,
+  NavbarHeaderDefault,
+  NavbarHeaderModern,
+  NavbarHeaderTwoPanel,
+  NavbarHeaderTwoPanelModern,
+  NavbarOpen,
+  NavbarTwoPanel,
+  OpenNavbarHeaderDefault,
+  OpenNavbarHeaderModern,
+} from "./components/Navbar";
+import {
+  HeaderDefault,
+  HeaderMenu,
+  HeaderNavbar,
+  HeaderNavbarTwoPanel,
+  HeaderOpenNavbar,
+  HeaderTwoPanel,
+} from "./layouts/Header";
 import {
   Home,
   Intro,
@@ -101,7 +118,7 @@ const coreRoutes = [
     component: ResizePage,
   },
   {
-    path: "not-found",
+    path: "*",
     component: NotFound,
   },
 ];
