@@ -6,3 +6,4 @@ export { default as OtherBlockContainer } from "./OtherBlockContainer";
 export { default as OtherFixedWidth } from "./OtherFixedWidth";
 export { default as OtherOverlayContent } from "./OtherOverlayContent";
 export { default as ResizePage } from "./ResizePage";
+export { default as Messenger } from "./messenger/Messenger";

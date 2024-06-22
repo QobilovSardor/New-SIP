@@ -11,6 +11,7 @@ import { Link, useLocation } from "react-router-dom";
 import { IconBento } from "@consta/icons/IconBento";
 import { IconStorage } from '@consta/icons/IconStorage';
 import { IconFolders } from "@consta/icons/IconFolders";
+import { IconArrowDown } from "@consta/icons/IconArrowDown";
 import CustomBreadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import assets from "../../assets";
 
@@ -34,6 +35,9 @@ const Header = (props) => {
     searchHeader,
     hamburgerLogo,
     handleToggleNav,
+    dropdownLogo,
+    pagesLink,
+    searchBox
   } = props;
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -55,16 +59,27 @@ const Header = (props) => {
             onClick={clicker}
           />
         ) : null}
-        <Link to='/' className="logo-box">
-          <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
-          <p>Geoapp</p>
-        </Link>
-        <div className={`search-box`}>
+        {dropdownLogo ? (
+          <>
+            <button className="logo-box">
+              <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
+              <IconArrowDown view="secondary" size="xs" />
+            </button>
+            <div className="line"></div>
+            <CustomBreadcrumbs items={pagesLink} />
+          </>
+        ) : (
+          <Link to='/' className="logo-box">
+            <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
+            <p>Geoapp</p>
+          </Link>
+        )}
+        {searchBox ? (<div className={`search-box`}>
           <div className="search-box">
             <input type="text" placeholder="Поиск" />
             <IconSearchStroked className="search-icon" />
           </div>
-        </div>
+        </div>) : null}
         {searchHeader ? null : (
           <>
             <div className="line"></div>

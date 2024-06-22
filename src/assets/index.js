@@ -20,7 +20,8 @@ import page17 from "./page17.png";
 import page18 from "./page18.png";
 import page19 from "./page19.png";
 import page20 from "./page20.png";
-import avatar from "./avatar.png";
+import avatar from "./avatar.svg";
+import avatar2 from "./avatar2.svg";
 import headerLogo from "./icons/logo-icon.svg";
 import notFoundImg from "./not-found.svg";
 
@@ -49,5 +50,6 @@ export default {
   page19,
   page20,
   headerLogo,
-  notFoundImg
+  notFoundImg,
+  avatar2
 };

@@ -1,3 +1,4 @@
+import { CorporateMail, PersonalChat } from "./components";
 import {
   NavbarDefault,
   NavbarHeaderDefault,
@@ -20,6 +21,7 @@ import {
 import {
   Home,
   Intro,
+  Messenger,
   NotFound,
   OpenPanelOrModal,
   OtherBlockContainer,
@@ -116,6 +118,18 @@ const coreRoutes = [
   {
     path: "resizer-page",
     component: ResizePage,
+  },
+  {
+    path: "messenger/:id?",
+    component: Messenger,
+  },
+  {
+    path: "messenger/corporate/:id",
+    component: CorporateMail,
+  },
+  {
+    path: "messenger/personal/:id",
+    component: PersonalChat,
   },
   {
     path: "*",

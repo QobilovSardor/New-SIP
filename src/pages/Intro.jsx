@@ -6,7 +6,6 @@ import CustomBreadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import { NavbarLayout } from "../components/Navbar";
 
 const Intro = ({ handleToggleNav, activeNav }) => {
-  console.log(handleToggleNav, 'handleToggleNav');
   const pagesSimple = [
     {
       label: 'Geoapp',

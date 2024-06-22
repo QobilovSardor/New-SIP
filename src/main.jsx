@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Theme, presetGpnDefault } from "@consta/uikit/Theme";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <Theme preset={presetGpnDefault}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Theme>
-  </React.StrictMode>,
+  </>,
 )
