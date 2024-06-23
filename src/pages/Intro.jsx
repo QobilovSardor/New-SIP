@@ -73,7 +73,7 @@ const Intro = () => {
                   Данные не найдены
                 </Text>
               </Link>
-              <Link className="file-manager" to='#!'>
+              <Link className="intro-card" to='file-manager'>
                 <img src={assets.page1_7} alt="" />
                 <Text size="s" view="secondary" className="page-info">
                   Менеджер данных
