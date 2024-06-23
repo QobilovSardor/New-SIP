@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { NavbarLayout } from "../../components/Navbar"
 import { Header } from "../../layouts/Header"
 import { PersonalChat, Sidebar } from "../../components"
 import Mail from "../../components/Messenger/CorporateMail"
 import { data, } from "../../helpers/chatData"
+import { ShowNavContext } from "../../context/ShowNavContext"
 
 const pagesLink = [
   {
@@ -16,9 +17,10 @@ const pagesLink = [
   },
 ]
 
-const Messenger = ({ handleToggleNav, activeNav }) => {
+const Messenger = () => {
   const [onSelectChat, setSelectedChat] = useState(null);
   const type = onSelectChat?.type;
+  const { handleToggleNav, activeNav } = useContext(ShowNavContext);
 
   return (
     <div className="messenger-page">

@@ -4,8 +4,12 @@ import { Text } from "@consta/uikit/Text";
 import { Header } from "../layouts/Header";
 import CustomBreadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import { NavbarLayout } from "../components/Navbar";
+import { useContext } from "react";
+import { ShowNavContext } from "../context/ShowNavContext";
 
-const Intro = ({ handleToggleNav, activeNav }) => {
+const Intro = () => {
+  const { handleToggleNav, activeNav } = useContext(ShowNavContext);
+
   const pagesSimple = [
     {
       label: 'Geoapp',
@@ -16,6 +20,7 @@ const Intro = ({ handleToggleNav, activeNav }) => {
       href: '#!',
     }
   ];
+
   return (
     <>
       <Header searchHeader={true} handleToggleNav={handleToggleNav} hamburgerLogo={true} />

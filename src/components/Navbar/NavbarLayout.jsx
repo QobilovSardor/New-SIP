@@ -1,4 +1,3 @@
-import { User } from "@consta/uikit/User";
 import { Button } from "@consta/uikit/Button";
 import { IconHamburger } from "@consta/icons/IconHamburger";
 import { IconLithologyFilled } from "@consta/icons/IconLithologyFilled";
@@ -15,8 +14,9 @@ import { IconSettings } from "@consta/icons/IconSettings";
 import { IconIpadStroked } from "@consta/icons/IconIpadStroked";
 import { IconAdd } from "@consta/icons/IconAdd";
 import { IconArrowPrevious } from "@consta/icons/IconArrowPrevious";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import assets from "../../assets";
+import { ShowNavContext } from "../../context/ShowNavContext";
 
 const NavbarLayout = (props) => {
   const
@@ -24,9 +24,6 @@ const NavbarLayout = (props) => {
       openNav,
       hideHamburger,
       showNav,
-      activeNav,
-      navbarHidden = false,
-      handleToggleNav,
     } = props;
 
   const [isActive, setIsActive] = useState(openNav);
@@ -40,7 +37,6 @@ const NavbarLayout = (props) => {
     setIsActive(!isActive);
     setOpen({});
   };
-
   const handleCollapseToggle = (key) => {
     if (isActive) {
       setOpen((prevState) => ({
@@ -59,6 +55,8 @@ const NavbarLayout = (props) => {
       handleToggleNav();
     }
   };
+
+  const { activeNav, navbarHidden = false, handleToggleNav } = useContext(ShowNavContext);
 
   return (
     <div

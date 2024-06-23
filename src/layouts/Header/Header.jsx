@@ -5,7 +5,7 @@ import { IconKebab } from "@consta/icons/IconKebab";
 import { IconBackward } from "@consta/icons/IconBackward";
 import { Badge } from "@consta/uikit/Badge";
 import { Text } from "@consta/uikit/Text";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { User } from "@consta/uikit/User";
 import { Link, useLocation } from "react-router-dom";
 import { IconBento } from "@consta/icons/IconBento";
@@ -14,6 +14,7 @@ import { IconFolders } from "@consta/icons/IconFolders";
 import { IconArrowDown } from "@consta/icons/IconArrowDown";
 import CustomBreadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import assets from "../../assets";
+import { ShowNavContext } from "../../context/ShowNavContext";
 
 const items = [
   "Главная",
@@ -34,11 +35,11 @@ const Header = (props) => {
   const {
     searchHeader,
     hamburgerLogo,
-    handleToggleNav,
     dropdownLogo,
     pagesLink,
     searchBox
   } = props;
+  const { handleToggleNav } = useContext(ShowNavContext);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const location = useLocation().pathname;
@@ -56,7 +57,7 @@ const Header = (props) => {
             onlyIcon
             iconLeft={IconBento}
             className="hamburger-menu"
-            onClick={clicker}
+            onClick={handleToggleNav}
           />
         ) : null}
         {dropdownLogo ? (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Header } from '../../layouts/Header'
 import { GptNavbar } from '../../components/Navbar'
 import './messenger.scss';
@@ -6,6 +6,7 @@ import GptMail from '../../components/Messenger/GptMail';
 import { IconChatStroked } from '@consta/icons/IconChatStroked'
 import { IconAdd } from '@consta/icons/IconAdd'
 import { Button } from '@consta/uikit/Button'
+import { ShowNavContext } from '../../context/ShowNavContext';
 const pagesLink = [
   {
     label: 'ЧатGPT',
@@ -36,8 +37,9 @@ const menuItems = [
   },
 ]
 
-const ChatGPT = ({ handleToggleNav, activeNav = true, showNavbar }) => {
+const ChatGPT = () => {
   const [onSelectChat, setSelectedChat] = useState(null);
+  const { handleToggleNav, activeNav = true, showNavbar } = useContext(ShowNavContext);
 
   useEffect(() => {
     setSelectedChat(menuItems[1]);

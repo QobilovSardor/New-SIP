@@ -20,6 +20,7 @@ import {
 } from "./layouts/Header";
 import {
   ChatGPT,
+  Directory,
   Home,
   Intro,
   Messenger,
@@ -140,6 +141,10 @@ const coreRoutes = [
   {
     path: "personal-information",
     component: PersonalInformation,
+  },
+  {
+    path: "directory",
+    component: Directory,
   },
   {
     path: "*",

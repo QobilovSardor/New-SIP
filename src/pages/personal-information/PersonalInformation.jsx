@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Header } from '../../layouts/Header'
 import { NavbarLayout } from '../../components/Navbar'
 import CustomBreadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
@@ -11,6 +11,8 @@ import { IconUser } from '@consta/icons/IconUser';
 import { Button } from '@consta/uikit/Button';
 import { IconLock } from '@consta/icons/IconLock';
 import { IconClose } from '@consta/icons/IconClose';
+import { ShowNavContext } from '../../context/ShowNavContext';
+
 const pagesLink = [
   {
     label: 'Geoapp',
@@ -28,8 +30,9 @@ const items = [
 
 const getItemLabel = (label) => label;
 
-const PersonalInformation = ({ handleToggleNav, activeNav }) => {
+const PersonalInformation = () => {
   const [value, setValue] = useState(items[0]);
+  const { handleToggleNav, activeNav } = useContext(ShowNavContext);
 
   return (
     <div className='personal-information__page'>
