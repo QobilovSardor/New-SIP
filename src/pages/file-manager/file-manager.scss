@@ -1,0 +1,15 @@
+@use "../directory/directory";
+// file-manager__page
+.file-manager__page {
+  .file-manager {
+    height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+  .middle-sidebar {
+    max-width: calc(100% - 196px - 352px - 360px);
+    width: 100%;
+    &.show-nav {
+      width: calc(100% - 460px - 352px - 360px);
+    }
+  }
+}

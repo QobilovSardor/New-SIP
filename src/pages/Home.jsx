@@ -10,26 +10,26 @@ import { IconSettings } from "@consta/icons/IconSettings";
 import { IconBackward } from "@consta/icons/IconBackward";
 import { Text } from "@consta/uikit/Text";
 import { ChoiceGroup } from "@consta/uikit/ChoiceGroup";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Tabs } from "@consta/uikit/Tabs";
 import { cnMixSpace } from "@consta/uikit/MixSpace";
 import { Link } from "react-router-dom";
 import { Header } from "../layouts/Header";
 import { NavbarLayout } from "../components/Navbar";
+import { ShowNavContext } from "../context/ShowNavContext";
 
 const items = ["Газ", "Газ 2", "Газ 3"];
 const itemsTab = ["Информация", "Документы", "Статистика"];
 
 const pagesSimple = ["Главная", "Раздел", "Страница"];
 
-const Home = ({ activeNav,
-  handleToggleNav,
-  navbarHidden, }) => {
+const Home = () => {
+  const { activeNav, handleToggleNav } = useContext(ShowNavContext);
 
   const [value, setValue] = useState(itemsTab[0]);
   const [valueTwo, setValueTwo] = useState(items[0]);
   const getItemLabel = (label) => label;
-  
+
 
   return (
     <div className="home">

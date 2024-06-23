@@ -21,6 +21,7 @@ import {
 import {
   ChatGPT,
   Directory,
+  FileManager,
   Home,
   Intro,
   Messenger,
@@ -145,6 +146,10 @@ const coreRoutes = [
   {
     path: "directory",
     component: Directory,
+  },
+  {
+    path: "file-manager",
+    component: FileManager,
   },
   {
     path: "*",

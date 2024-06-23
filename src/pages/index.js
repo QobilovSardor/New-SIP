@@ -1,3 +1,4 @@
+import "./pages.scss";
 export { default as Home } from "./Home";
 export { default as NotFound } from "./NotFound";
 export { default as Intro } from "./Intro";
@@ -9,4 +10,5 @@ export { default as ResizePage } from "./ResizePage";
 export { default as Messenger } from "./messenger/Messenger";
 export { default as ChatGPT } from "./messenger/ChatGPT";
 export { default as PersonalInformation } from "./personal-information/PersonalInformation";
-export {default as Directory} from './directory/Directory';
+export { default as Directory } from "./directory/Directory";
+export { default as FileManager } from "./file-manager/FileManager";

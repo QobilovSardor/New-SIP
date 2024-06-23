@@ -24,7 +24,9 @@ import avatar from "./avatar.svg";
 import avatar2 from "./avatar2.svg";
 import headerLogo from "./icons/logo-icon.svg";
 import notFoundImg from "./not-found.svg";
-import gptIcon from './icons/gpt-icon.svg';
+import gptIcon from "./icons/gpt-icon.svg";
+import iconSeismic3d from "./icons/icon-seismic-3d.svg";
+import iconHorizon from "./icons/icon-horizon.svg";
 
 export default {
   avatar,
@@ -54,4 +56,6 @@ export default {
   notFoundImg,
   avatar2,
   gptIcon,
+  iconSeismic3d,
+  iconHorizon,
 };

@@ -1,113 +1,39 @@
-import React, { useContext, useState } from 'react';
-import { Header } from '../../layouts/Header';
+import React, { useContext, useState } from 'react'
+import { Header } from '../../layouts/Header'
+import { ShowNavContext } from '../../context/ShowNavContext';
 import { NavbarLayout } from '../../components/Navbar';
+import './file-manager.scss';
 import { Text } from '@consta/uikit/Text';
-import './directory.scss';
-import { IconKebab } from '@consta/icons/IconKebab';
-import { Button } from '@consta/uikit/Button';
-import { Table } from '@consta/uikit/Table';
-import { Checkbox } from '@consta/uikit/Checkbox';
-import { Pagination } from '@consta/uikit/Pagination';
-import { Tabs } from '@consta/uikit/Tabs';
 import { AvatarGroup } from '@consta/uikit/AvatarGroup';
-import { Tag } from '@consta/uikit/Tag';
+import { Button } from '@consta/uikit/Button';
+import { IconEdit } from '@consta/icons/IconEdit';
+import { IconTrash } from '@consta/icons/IconTrash';
+import { Tabs } from '@consta/uikit/Tabs';
 import { Badge } from '@consta/uikit/Badge';
 import { IconAllDone } from '@consta/icons/IconAllDone';
 import { IconAlert } from '@consta/icons/IconAlert';
-import { IconEdit } from '@consta/icons/IconEdit';
-import { IconTrash } from '@consta/icons/IconTrash';
-import { List } from '@consta/uikit/ListCanary';
-import { IconFolderOpen } from '@consta/icons/IconFolderOpen';
-import { ShowNavContext } from '../../context/ShowNavContext';
+import { Tag } from '@consta/uikit/Tag';
 import { IconSearchStroked } from '@consta/icons/IconSearchStroked';
 import { IconSortDownCenter } from '@consta/icons/IconSortDownCenter';
+import { IconStorage } from '@consta/icons/IconStorage';
+import { IconDownload } from '@consta/icons/IconDownload';
+import { IconWells } from '@consta/icons/IconWells';
+import { IconSeismic2D } from '@consta/icons/IconSeismic2D';
+import { IconMarkers } from '@consta/icons/IconMarkers';
+import { IconMaps } from '@consta/icons/IconMaps';
+import { List } from '@consta/uikit/ListCanary';
 
-const rows = [
-  {
-    id: '1',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-  {
-    id: '2',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-  {
-    id: '3',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-  {
-    id: '4',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-  {
-    id: '5',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-  {
-    id: '6',
-    name: <Checkbox size='s' label="Северное" />,
-    isOpen: 'Открытое',
-    year: 1982,
-    production: '5 000',
-    reserves: '5 000',
-    npv: '5 000',
-  },
-];
 
-const columns = [
+const pagesLink = [
   {
-    title: 'Месторождение',
-    accessor: 'name',
+    label: 'Менеджер данных',
+    href: '#!',
   },
   {
-    title: 'Год открытия',
-    accessor: 'year',
+    label: 'Хранилище',
+    href: '/#!',
   },
-  {
-    title: 'Тип',
-    accessor: 'isOpen',
-  },
-  {
-    title: 'Добыча, млн.т.',
-    accessor: 'production',
-    align: 'right',
-  },
-  {
-    title: 'Запасы, млн.т.',
-    accessor: 'reserves',
-    align: 'right',
-  },
-  {
-    title: 'NPV, млрд ₽',
-    accessor: 'npv',
-    align: 'right',
-  },
-];
+]
 
 const avatarGroupItems = [
   {
@@ -138,34 +64,40 @@ const avatarGroupItems = [
 
 const listItems = [
   {
-    label: 'Месторождения',
+    label: 'Скважины',
     id: 1,
     disabled: false,
-    leftIcon: IconFolderOpen
+    leftIcon: IconWells
   },
   {
-    label: 'Лицензионные участки',
+    label: 'Сьемки',
     id: 2,
     disabled: true,
-    leftIcon: IconFolderOpen
+    leftIcon: IconSeismic2D
   },
   {
-    label: 'Кусты',
+    label: 'Модели',
     id: 3,
     disabled: true,
-    leftIcon: IconFolderOpen
+    leftIcon: IconMarkers
   },
   {
-    label: 'Скважины',
-    id: 3,
+    label: 'Маркеры',
+    id: 4,
     disabled: true,
-    leftIcon: IconFolderOpen
+    leftIcon: IconMarkers
   },
   {
-    label: 'Дочерние общества',
-    id: 3,
+    label: 'Карты',
+    id: 5,
     disabled: true,
-    leftIcon: IconFolderOpen
+    leftIcon: IconMaps
+  },
+  {
+    label: 'Горизонты',
+    id: 6,
+    disabled: true,
+    leftIcon: IconMaps
   },
 ];
 
@@ -173,30 +105,32 @@ const items = ['Информация', 'История'];
 
 const getItemLabel = (label) => label;
 
-const Directory = () => {
+const FileManager = () => {
   const { handleToggleNav, activeNav } = useContext(ShowNavContext);
-
   const [page, setPage] = useState(1);
   const [value, setValue] = useState(items[0]);
 
   return (
-    <div className='directory-page'>
+    <div className='file-manager__page'>
       <Header
         handleToggleNav={handleToggleNav}
         searchHeader={true}
-        searchBox={true}
+        searchBox={false}
         hamburgerLogo={true}
         dropdownLogo={true}
+        pagesLink={pagesLink}
       />
-      <div className='flex'>
+
+      <div className='flex file-manager'>
         <NavbarLayout
+          navbarHidden={true}
           hideHamburger={true}
           openNav={activeNav}
-          setActiveNav={() => handleToggleNav(!activeNav)}
+          setActiveNav={activeNav}
         />
         <div className='left-sidebar'>
           <div className="sidebar-header">
-            <Text as='h1' view='primary'>Северное</Text>
+            <Text as='h1' view='primary'>Мои обьекты</Text>
             <div className='sidebar-header__btns'>
               <Button size='xs' view='clear' iconLeft={IconSearchStroked} />
               <Button size='xs' view='clear' iconLeft={IconSortDownCenter} />
@@ -204,30 +138,15 @@ const Directory = () => {
           </div>
           <List size='xs' placeholder="Выберите вариант" items={listItems} />
         </div>
-        <div className={`middle-sidebar ${activeNav && 'show-nav'}`}>
-          <div className="sidebar-header">
-            <Text as='h1' view='primary'>Месторождения</Text>
-            <Button size='xs' view='clear' iconLeft={IconKebab} />
-          </div>
-          <div className="table-box">
-            <Table zebraStriped="odd" rows={rows} columns={columns} />
-            <div className='table-pagination'>
-              <Text as='span' className='pagination-text' >1 из 8</Text>
-              <Pagination
-                type="input"
-                items={5}
-                value={page}
-                onChange={setPage}
-                outerMostArrows={[true, true]}
-                arrows={[{ label: null }, { label: null }]}
-              />
-            </div>
-          </div>
+        <div className={`middle-sidebar ${activeNav ? 'show-nav' : ''}`}>
+
         </div>
         <div className='right-sidebar'>
           <div className="sidebar-header">
-            <Text as='h1' view='primary'>Северное</Text>
+            <Text as='h1' view='primary'>Скважина 1</Text>
             <div className='sidebar-header__btns'>
+              <Button size='xs' view='clear' iconLeft={IconDownload} />
+              <Button size='xs' view='clear' iconLeft={IconStorage} />
               <Button size='xs' view='clear' iconLeft={IconEdit} />
               <Button size='xs' view='clear' iconLeft={IconTrash} />
             </div>
@@ -270,7 +189,7 @@ const Directory = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Directory;
+export default FileManager

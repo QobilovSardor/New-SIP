@@ -73,10 +73,10 @@ const Intro = () => {
                   Данные не найдены
                 </Text>
               </Link>
-              <Link className="intro-card" to='#!'>
+              <Link className="file-manager" to='#!'>
                 <img src={assets.page1_7} alt="" />
                 <Text size="s" view="secondary" className="page-info">
-                  2.3 Navbar and Two Panel
+                  Менеджер данных
                 </Text>
               </Link>
               <Link className="intro-card" to='#!'>
