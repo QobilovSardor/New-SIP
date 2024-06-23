@@ -19,6 +19,7 @@ import {
   HeaderTwoPanel,
 } from "./layouts/Header";
 import {
+  ChatGPT,
   Home,
   Intro,
   Messenger,
@@ -130,6 +131,10 @@ const coreRoutes = [
   {
     path: "messenger/personal/:id",
     component: PersonalChat,
+  },
+  {
+    path: "chat-gpt/:id?",
+    component: ChatGPT,
   },
   {
     path: "*",

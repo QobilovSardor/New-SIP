@@ -1,0 +1,34 @@
+.chat-gpt__page {
+  background: #ecf1f4;
+  height: 100%;
+
+  .gpt-mail {
+    width: 100%;
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 24px;
+      color: #002033;
+    }
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .user-msg {
+      background: #00203314;
+      color: #002033;
+      .msg-date {
+        color: #00203399;
+      }
+    }
+    .user-msgs {
+      .user-msg {
+        background: #fff;
+      }
+    }
+    .send-msg__box {
+      background: #fff;
+    }
+  }
+}

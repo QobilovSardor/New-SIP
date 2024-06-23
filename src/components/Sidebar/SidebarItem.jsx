@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { extractDate } from '../../helpers/chatData';
 const SidebarItem = ({ item, onSelectChat }) => {
   const { id, avatarImg, name, msgTime, message, seen, type } = item;
-  // console.log(onSelectChat(item));
+  
   return (
     <div className="sidebar-component">
       <div className="sidebar-items">

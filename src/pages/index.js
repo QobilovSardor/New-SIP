@@ -7,3 +7,4 @@ export { default as OtherFixedWidth } from "./OtherFixedWidth";
 export { default as OtherOverlayContent } from "./OtherOverlayContent";
 export { default as ResizePage } from "./ResizePage";
 export { default as Messenger } from "./messenger/Messenger";
+export { default as ChatGPT } from "./messenger/ChatGPT";

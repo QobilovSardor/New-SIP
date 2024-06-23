@@ -14,8 +14,6 @@ import { IconType } from "@consta/icons/IconType";
 import { IconSettings } from "@consta/icons/IconSettings";
 import { IconIpadStroked } from "@consta/icons/IconIpadStroked";
 import { IconAdd } from "@consta/icons/IconAdd";
-import { IconRing } from "@consta/icons/IconRing";
-import { IconBento } from "@consta/icons/IconBento";
 import { IconArrowPrevious } from "@consta/icons/IconArrowPrevious";
 import { useEffect, useState } from "react";
 import assets from "../../assets";

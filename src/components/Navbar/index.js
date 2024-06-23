@@ -1,4 +1,4 @@
-import './navbar.css'
+import "./navbar.scss";
 export { default } from "./Navbar";
 export { default as NavbarDefault } from "./NavbarDefault";
 export { default as NavbarItem } from "./NavbarItem";
@@ -12,3 +12,4 @@ export { default as NavbarHeaderModern } from "./NavbarHeaderModern";
 export { default as OpenNavbarHeaderModern } from "./OpenNavbarHeaderModern";
 export { default as NavbarHeaderTwoPanelModern } from "./NavbarHeaderTwoPanelModern";
 export { default as NavbarLayout } from "./NavbarLayout";
+export { default as GptNavbar } from "./GptNavbar";
