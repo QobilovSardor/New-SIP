@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { NavbarLayout } from "../../components/Navbar"
 import { Header } from "../../layouts/Header"
 import { PersonalChat, Sidebar } from "../../components"
@@ -20,8 +20,11 @@ const pagesLink = [
 const Messenger = () => {
   const [onSelectChat, setSelectedChat] = useState(null);
   const type = onSelectChat?.type;
-  const { handleToggleNav, activeNav } = useContext(ShowNavContext);
-
+  const { handleToggleNav, activeNav, setNavbarHidden, toggleHidden } = useContext(ShowNavContext);
+  useEffect(() => {
+    toggleHidden()
+  }, [])
+  console.log(setNavbarHidden);
   return (
     <div className="messenger-page">
       <Header
@@ -34,7 +37,7 @@ const Messenger = () => {
       />
       <div className="flex">
         <NavbarLayout
-          navbarHidden={true}
+          setNavbarHidden={true}
           hideHamburger={true}
           openNav={activeNav}
           setActiveNav={!activeNav}
