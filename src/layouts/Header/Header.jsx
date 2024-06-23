@@ -65,8 +65,12 @@ const Header = (props) => {
               <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
               <IconArrowDown view="secondary" size="xs" />
             </button>
-            <div className="line"></div>
-            <CustomBreadcrumbs items={pagesLink} />
+            {pagesLink && (
+              <>
+                <div className="line"></div>
+                <CustomBreadcrumbs items={pagesLink} />
+              </>
+            )}
           </>
         ) : (
           <Link to='/' className="logo-box">

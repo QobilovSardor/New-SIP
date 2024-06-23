@@ -28,6 +28,7 @@ import {
   OtherBlockContainer,
   OtherFixedWidth,
   OtherOverlayContent,
+  PersonalInformation,
   ResizePage,
 } from "./pages";
 
@@ -135,6 +136,10 @@ const coreRoutes = [
   {
     path: "chat-gpt/:id?",
     component: ChatGPT,
+  },
+  {
+    path: "personal-information",
+    component: PersonalInformation,
   },
   {
     path: "*",
