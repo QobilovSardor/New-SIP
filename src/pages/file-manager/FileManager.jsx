@@ -21,7 +21,16 @@ import { IconWells } from '@consta/icons/IconWells';
 import { IconSeismic2D } from '@consta/icons/IconSeismic2D';
 import { IconMarkers } from '@consta/icons/IconMarkers';
 import { IconMaps } from '@consta/icons/IconMaps';
-import { List } from '@consta/uikit/ListCanary';
+import { IconAttach } from '@consta/icons/IconAttach';
+import { IconKernStroked } from '@consta/icons/IconKernStroked';
+import assets from '../../assets';
+import { ChoiceGroup } from '@consta/uikit/ChoiceGroup';
+import { IconTable2 } from '@consta/icons/IconTable2'
+import { IconColumns } from '@consta/icons/IconColumns';
+import { IconWellFolder } from '@consta/icons/IconWellFolder';
+import { IconMeatball } from '@consta/icons/IconMeatball';
+import { IconArrowRight } from '@consta/icons/IconArrowRight';
+import { Attachment } from '@consta/uikit/Attachment';
 
 
 const pagesLink = [
@@ -105,10 +114,19 @@ const items = ['Информация', 'История'];
 
 const getItemLabel = (label) => label;
 
+const items2 = [
+  {
+    icon: IconTable2,
+  },
+  {
+    icon: IconColumns,
+  },
+];
+
 const FileManager = () => {
   const { handleToggleNav, activeNav } = useContext(ShowNavContext);
-  const [page, setPage] = useState(1);
   const [value, setValue] = useState(items[0]);
+  const [value2, setValue2] = useState(items2[1]);
 
   return (
     <div className='file-manager__page'>
@@ -136,10 +154,298 @@ const FileManager = () => {
               <Button size='xs' view='clear' iconLeft={IconSortDownCenter} />
             </div>
           </div>
-          <List size='xs' placeholder="Выберите вариант" items={listItems} />
+          <div className='btns'>
+            <Button size='xs' iconLeft={IconAttach} label='Загрузить из ПК' view='primary' />
+            <Button size='xs' iconLeft={IconKernStroked} label='Загрузить из БД' view='secondary' />
+          </div>
+          <ul className='list'>
+            <li className='list-item active'>
+              <div className='flex'>
+                <IconWells size='s' />
+                <Text weight='medium' view='primary' size='xs'>Скважины</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+            <li className='list-item'>
+              <div className='flex'>
+                <IconSeismic2D size='s' />
+                <Text weight='medium' view='primary' size='xs'>Сьемки</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+            <li className='list-item'>
+              <div className='flex'>
+                <img src={assets.iconSeismic3d} alt="" />
+                <Text weight='medium' view='primary' size='xs'>Модели</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+            <li className='list-item'>
+              <div className='flex'>
+                <IconMarkers size='s' />
+                <Text weight='medium' view='primary' size='xs'>Маркеры</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+            <li className='list-item'>
+              <div className='flex'>
+                <IconMaps size='s' />
+                <Text weight='medium' view='primary' size='xs'>Карты</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+            <li className='list-item'>
+              <div className='flex'>
+                <img src={assets.iconHorizon} alt="" />
+                <Text weight='medium' view='primary' size='xs'>Горизонты</Text>
+              </div>
+              <Text as='span' size='xs' view='secondary'>64</Text>
+            </li>
+          </ul>
         </div>
         <div className={`middle-sidebar ${activeNav ? 'show-nav' : ''}`}>
-
+          <div className='sidebar-header'>
+            <Text as='h1' view='primary'>Скважины</Text>
+            <div className="btns">
+              <div>
+                <Button size='xs' view='clear' iconLeft={IconSearchStroked} />
+                <Button size='xs' view='clear' iconLeft={IconSortDownCenter} />
+              </div>
+              <ChoiceGroup
+                value={value2}
+                view='ghost'
+                onlyIcon
+                size='xs'
+                onChange={setValue2}
+                items={items2}
+                getItemLabel={(item) => item}
+                multiple={true}
+                name="ChoiceGroupExample"
+              />
+            </div>
+          </div>
+          <div className="lists">
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconMeatball} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+            <div className="list-item">
+              <div className='top-box'>
+                <div className='flex'>
+                  <IconWellFolder />
+                  <Text size='xs' view='primary' weight='medium'>Группа скважин 1</Text>
+                </div>
+                <div className='right-box flex'>
+                  <Text size='xs' view='secondary'>12.8 Мб.</Text>
+                  <Text size='xs' view='secondary'>05.12.2024 в 13:25</Text>
+                </div>
+              </div>
+              <div className="bottom-box">
+                <div className='flex'>
+                  <Text size='xs' view='secondary'>ГПН-Хантос</Text>
+                  <Text size='xs' view='secondary'>Зимнее</Text>
+                  <Text size='xs' view='secondary'>Маркеры 4</Text>
+                </div>
+                <Button size='xs' view='clear' iconLeft={IconArrowRight} />
+              </div>
+            </div>
+          </div>
         </div>
         <div className='right-sidebar'>
           <div className="sidebar-header">
@@ -184,6 +490,30 @@ const FileManager = () => {
             <div className='text-box'>
               <Text as='span' size='s' view='secondary'>Пользователи</Text>
               <AvatarGroup size='xs' items={avatarGroupItems} visibleCount={4} />
+            </div>
+            <div className='text-box'>
+              <Text as='span' size='s' view='secondary'>Документы</Text>
+              <Attachment
+                withPictogram
+                fileName="Приложенный документ c небольшим названием"
+                fileExtension="docx"
+                fileDescription="1,5 Mб  21.02.2019, 14:12"
+                size='xs'
+              />
+              <Attachment
+                withPictogram
+                fileName="Приложенный документ c небольшим названием"
+                fileExtension="pdf"
+                fileDescription="1,5 Mб  21.02.2019, 14:12"
+                size='xs'
+              />
+              <Attachment
+                withPictogram
+                fileName="Приложенный документ c небольшим названием"
+                fileExtension="xlsx"
+                fileDescription="1,5 Mб  21.02.2019, 14:12"
+                size='xs'
+              />
             </div>
           </div>
         </div>

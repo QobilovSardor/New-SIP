@@ -57,7 +57,7 @@ const NavbarLayout = (props) => {
   };
 
   const { activeNav, navbarHidden = false, handleToggleNav } = useContext(ShowNavContext);
-console.log(navbarHidden, 'salom');
+
   return (
     <div
       className={`navbar ${isActive ? "active" : ""} ${showNav ? "active" : ""
