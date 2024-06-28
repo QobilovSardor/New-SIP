@@ -27,6 +27,19 @@ import notFoundImg from "./not-found.svg";
 import gptIcon from "./icons/gpt-icon.svg";
 import iconSeismic3d from "./icons/icon-seismic-3d.svg";
 import iconHorizon from "./icons/icon-horizon.svg";
+import cursor from "./icons/cursor.svg";
+import autoFit from "./icons/arrow-auto-fit.svg";
+import routing from "./icons/routing.svg";
+import settings from "./icons/settings.svg";
+import more from "./icons/more.svg";
+import formula from "./icons/formula.svg";
+import calculator from "./icons/calculator.svg";
+import apps from "./icons/apps.svg";
+import dualScreen from "./icons/dual-screen.svg";
+import chart3d from "./chart3d.png";
+import vizualizationImg from "./vizualization-img.png";
+import gridImg from "./grid-img.png";
+import modelImport from "./model-img.png";
 
 export default {
   avatar,
@@ -58,4 +71,17 @@ export default {
   gptIcon,
   iconSeismic3d,
   iconHorizon,
+  cursor,
+  autoFit,
+  routing,
+  settings,
+  more,
+  formula,
+  calculator,
+  apps,
+  dualScreen,
+  chart3d,
+  vizualizationImg,
+  gridImg,
+  modelImport
 };

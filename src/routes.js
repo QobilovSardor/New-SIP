@@ -23,6 +23,7 @@ import {
   Directory,
   FileManager,
   Home,
+  Interpretation,
   Intro,
   Messenger,
   NotFound,
@@ -32,6 +33,9 @@ import {
   OtherOverlayContent,
   PersonalInformation,
   ResizePage,
+  Table,
+  Visualization2D,
+  Visualization3D,
 } from "./pages";
 
 const coreRoutes = [
@@ -151,6 +155,23 @@ const coreRoutes = [
     path: "file-manager",
     component: FileManager,
   },
+  {
+    path: "table",
+    component: Table,
+  },
+  {
+    path: "visualization-3D",
+    component: Visualization3D,
+  },
+  {
+    path: "visualization-2D",
+    component: Visualization2D,
+  },
+  {
+    path: "interpretation",
+    component: Interpretation,
+  },
+  //
   {
     path: "*",
     component: NotFound,

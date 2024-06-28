@@ -184,3 +184,32 @@ body {
   height: 100vh;
 }
 /* not-found page end */
+
+.action-bar {
+  box-shadow: 0px 2px 4px 0px #00000014;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 8px auto 0 auto;
+}
+.action-bar .img-box {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.action-bar .line {
+  background: #97b2c4;
+  width: 1px;
+  height: 16px;
+  margin: 0 6px;
+}
+.Popover.ContextMenuLevel-Desktop {
+  z-index: 10;
+}

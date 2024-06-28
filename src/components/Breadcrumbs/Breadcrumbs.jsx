@@ -8,7 +8,7 @@ const CustomBreadcrumbs = ({ items = [] }) => {
     href: item.href,
   }));
 
-  return <Breadcrumbs items={breadcrumbItems} size='xs' />;
+  return <Breadcrumbs fitMode="scroll" items={breadcrumbItems} size='xs' />;
 };
 
 export default CustomBreadcrumbs;

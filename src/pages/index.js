@@ -12,3 +12,7 @@ export { default as ChatGPT } from "./messenger/ChatGPT";
 export { default as PersonalInformation } from "./personal-information/PersonalInformation";
 export { default as Directory } from "./directory/Directory";
 export { default as FileManager } from "./file-manager/FileManager";
+export { default as Table } from "./table/Table";
+export { default as Visualization3D } from "./visualization/Visualization3D";
+export { default as Visualization2D } from "./visualization/Visualization2D";
+export { default as Interpretation } from "./visualization/Interpretation";

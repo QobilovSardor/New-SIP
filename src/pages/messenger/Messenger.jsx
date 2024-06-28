@@ -24,7 +24,6 @@ const Messenger = () => {
   useEffect(() => {
     toggleHidden()
   }, [])
-  console.log(setNavbarHidden);
   return (
     <div className="messenger-page">
       <Header
