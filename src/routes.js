@@ -27,6 +27,7 @@ import {
   Intro,
   Messenger,
   NotFound,
+  ObjectModel,
   OpenPanelOrModal,
   OtherBlockContainer,
   OtherFixedWidth,
@@ -34,6 +35,7 @@ import {
   PersonalInformation,
   ResizePage,
   Table,
+  Tablet,
   Visualization2D,
   Visualization3D,
 } from "./pages";
@@ -171,7 +173,14 @@ const coreRoutes = [
     path: "interpretation",
     component: Interpretation,
   },
-  //
+  {
+    path: "object-model",
+    component: ObjectModel,
+  },
+  {
+    path: "tablet",
+    component: Tablet,
+  },
   {
     path: "*",
     component: NotFound,

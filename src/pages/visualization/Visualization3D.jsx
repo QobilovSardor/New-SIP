@@ -44,7 +44,7 @@ const Visualization3D = () => {
           openNav={activeNav}
           setActiveNav={!activeNav}
         />
-        <div className='w-full'>
+        <div className='w-full h-scroll'>
           <ActionBar />
           <div className='chart-img image-box'>
             <img src={assets.chart3d} alt="" />

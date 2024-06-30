@@ -3,10 +3,14 @@
   background-size: cover;
   position: relative;
   z-index: 1;
-  height: 100vh;
-  overflow-y: auto;
+  // height: 100vh;
+  // overflow-y: auto;
+  .h-scroll {
+    height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
   .action-bar {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -26,10 +30,11 @@
     }
   }
   .chart-img {
-    position: absolute;
+    // position: absolute;
+    // transform: translateX(-50%);
+    margin: 0 auto;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
     width: 932px;
     height: 1077px;
     z-index: -1;
@@ -39,5 +44,20 @@
     width: 100%;
     height: 1058px;
     margin: 0 auto;
+  }
+  .object-model__img {
+    height: 872px;
+    width: 715px;
+    margin: 0 auto;
+  }
+  .tablet-img {
+    position: absolute;
+    z-index: -1;
+    top: 104px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

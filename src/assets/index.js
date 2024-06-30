@@ -40,6 +40,8 @@ import chart3d from "./chart3d.png";
 import vizualizationImg from "./vizualization-img.png";
 import gridImg from "./grid-img.png";
 import modelImport from "./model-img.png";
+import objectModelImg from "./object-model.png";
+import tabletImg from "./tablet-img.png";
 
 export default {
   avatar,
@@ -83,5 +85,7 @@ export default {
   chart3d,
   vizualizationImg,
   gridImg,
-  modelImport
+  modelImport,
+  objectModelImg,
+  tabletImg
 };

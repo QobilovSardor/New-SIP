@@ -15,12 +15,12 @@ const pagesLink = [
     href: "#!",
   },
   {
-    label: "Модель обьекта",
+    label: "Планшет",
     href: "#!",
   },
 ];
 
-const ObjectModel = () => {
+const Tablet = () => {
   const { handleToggleNav, activeNav, toggleHidden } =
     useContext(ShowNavContext);
 
@@ -46,8 +46,8 @@ const ObjectModel = () => {
         />
         <div className="w-full h-scroll">
           <ActionBar />
-          <div className="object-model__img image-box">
-            <img src={assets.objectModelImg} alt="" />
+          <div className="tablet-img image-box">
+            <img src={assets.tabletImg} alt="" />
           </div>
         </div>
       </div>
@@ -55,4 +55,4 @@ const ObjectModel = () => {
   );
 };
 
-export default ObjectModel;
+export default Tablet;

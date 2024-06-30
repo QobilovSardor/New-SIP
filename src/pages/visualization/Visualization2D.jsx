@@ -5,6 +5,7 @@ import { NavbarLayout } from '../../components/Navbar';
 import './visualization.scss';
 import { ActionBar } from '../../components';
 import assets from '../../assets';
+
 const pagesLink = [
   {
     label: 'Geoapp',
@@ -43,7 +44,7 @@ const Visualization2D = () => {
           openNav={activeNav}
           setActiveNav={!activeNav}
         />
-        <div className='w-full'>
+        <div className='w-full h-scroll'>
           <ActionBar />
           <div className='vizualization-img image-box'>
             <img src={assets.vizualizationImg} alt="" />
