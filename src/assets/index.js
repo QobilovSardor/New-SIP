@@ -42,6 +42,7 @@ import gridImg from "./grid-img.png";
 import modelImport from "./model-img.png";
 import objectModelImg from "./object-model.png";
 import tabletImg from "./tablet-img.png";
+import CorrCircuitImg from './CorrCircuitImg.png'
 
 export default {
   avatar,
@@ -87,5 +88,6 @@ export default {
   gridImg,
   modelImport,
   objectModelImg,
-  tabletImg
+  tabletImg,
+  CorrCircuitImg,
 };

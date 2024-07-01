@@ -18,3 +18,4 @@ export { default as Visualization2D } from "./visualization/Visualization2D";
 export { default as Interpretation } from "./visualization/Interpretation";
 export { default as ObjectModel } from "./visualization/ObjectModel";
 export { default as Tablet } from "./visualization/Tablet";
+export { default as CorrCircuit } from "./visualization/CorrCircuit";

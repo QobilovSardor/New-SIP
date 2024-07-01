@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 import { User } from "@consta/uikit/User";
 import { Link, useLocation } from "react-router-dom";
 import { IconBento } from "@consta/icons/IconBento";
-import { IconStorage } from '@consta/icons/IconStorage';
+import { IconStorage } from "@consta/icons/IconStorage";
 import { IconFolders } from "@consta/icons/IconFolders";
 import { IconArrowDown } from "@consta/icons/IconArrowDown";
 import CustomBreadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
@@ -37,7 +37,8 @@ const Header = (props) => {
     hamburgerLogo,
     dropdownLogo,
     pagesLink,
-    searchBox
+    searchBox,
+    noFolderIcon,
   } = props;
   const { handleToggleNav } = useContext(ShowNavContext);
 
@@ -56,14 +57,19 @@ const Header = (props) => {
             size="xs"
             onlyIcon
             iconLeft={IconBento}
-            className="hamburger-menu"
+            className="hamburger-menu media-none"
             onClick={handleToggleNav}
           />
         ) : null}
         {dropdownLogo ? (
           <>
             <button className="logo-box">
-              <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
+              <img
+                src={assets.headerLogo}
+                alt="header-logo"
+                width="10"
+                height="11"
+              />
               <IconArrowDown view="secondary" size="xs" />
             </button>
             {pagesLink && (
@@ -74,23 +80,31 @@ const Header = (props) => {
             )}
           </>
         ) : (
-          <Link to='/' className="logo-box">
-            <img src={assets.headerLogo} alt="header-logo" width="10" height="11" />
+          <Link to="/" className="logo-box">
+            <img
+              src={assets.headerLogo}
+              alt="header-logo"
+              width="10"
+              height="11"
+            />
             <p>Geoapp</p>
           </Link>
         )}
-        {searchBox ? (<div className={`search-box`}>
-          <div className="search-box">
-            <input type="text" placeholder="Поиск" />
-            <IconSearchStroked className="search-icon" />
+        {searchBox ? (
+          <div className={`search-box`}>
+            <div className="search-box">
+              <input type="text" placeholder="Поиск" />
+              <IconSearchStroked className="search-icon" />
+            </div>
           </div>
-        </div>) : null}
+        ) : null}
         {searchHeader ? null : (
           <>
             <div className="line"></div>
             <div
-              className={`${location === "/" ? "hidden " : ""
-                } header-breadcrumbs`}
+              className={`${
+                location === "/" ? "hidden " : ""
+              } header-breadcrumbs`}
             >
               <Button
                 label="Назад"
@@ -126,8 +140,18 @@ const Header = (props) => {
       </div>
       <div className={`header-right`}>
         <div>
-          <Button view="clear" size="xs" onlyIcon iconLeft={IconFolders}
+          <Button
+            view="clear"
+            size="xs"
+            onlyIcon
+            iconLeft={IconBento}
+            className="hamburger-menu media-block"
+            onClick={handleToggleNav}
           />
+          {noFolderIcon ? null : (
+            <Button view="clear" size="xs" onlyIcon iconLeft={IconFolders} />
+          )}
+
           <Button view="clear" size="xs" onlyIcon iconLeft={IconRing} />
           <Button view="clear" size="xs" onlyIcon iconLeft={IconStorage} />
         </div>
@@ -135,6 +159,6 @@ const Header = (props) => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;

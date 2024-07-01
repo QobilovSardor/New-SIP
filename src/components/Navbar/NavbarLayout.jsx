@@ -60,8 +60,9 @@ const NavbarLayout = (props) => {
 
   return (
     <div
-      className={`navbar ${isActive ? "active" : ""} ${showNav ? "active" : ""
-        }  ${activeNav ? "active" : ""} ${navbarHidden ? "navbar-hidden" : ""}`}
+      className={`navbar ${isActive ? "active" : ""} ${
+        showNav ? "active" : ""
+      }  ${activeNav ? "active" : ""} ${navbarHidden ? "navbar-hidden" : ""}`}
     >
       <div className="navbar-top">
         {hideHamburger ? null : (
@@ -83,19 +84,36 @@ const NavbarLayout = (props) => {
           </>
         )}
         <div className="left-nav__boxes">
-          <div className="nav-list active">
+          {/* <div className="nav-list active">
             <div className="nav-list__icon">
-              <IconHome />
+              <IconHome size="xs" />
             </div>
             <p className="nav-link">Главная</p>
-          </div>
+          </div> */}
+
+          <Collapse
+            className="nav-list active col"
+            size="xs"
+            label={
+              <div className="flex  items-center">
+                <div className="nav-list__icon">
+                  <IconHome size="xs" />
+                </div>
+                <a href="#!" className="nav-link collapse">
+                  Главная
+                </a>
+              </div>
+            }
+            iconPosition=""
+          ></Collapse>
+
           <Collapse
             className="nav-list col"
             size="xs"
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconLithologyFilled />
+                  <IconLithologyFilled size="xs" />
                 </div>
                 <p className="nav-link collapse">Дашборд</p>
               </div>
@@ -114,7 +132,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center notification">
                 <div className="nav-list__icon">
-                  <IconFolderOpen />
+                  <IconFolderOpen size="xs" />
                 </div>
                 <p className="nav-link collapse">Проекты</p>
               </div>
@@ -134,7 +152,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconWindow />
+                  <IconWindow size="xs" />
                 </div>
                 <p className="nav-link collapse">Контент</p>
               </div>
@@ -157,7 +175,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconPicture />
+                  <IconPicture size="xs" />
                 </div>
                 <p className="nav-link collapse">Визуализатор</p>
               </div>
@@ -182,7 +200,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconCalculator />
+                  <IconCalculator size="xs" />
                 </div>
                 <p className="nav-link collapse">Процессы</p>
               </div>
@@ -207,7 +225,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconBook />
+                  <IconBook size="xs" />
                 </div>
                 <a href="#!" className="nav-link collapse">
                   Справочники
@@ -223,7 +241,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconTree />
+                  <IconTree size="xs" />
                 </div>
                 <a href="#!" className="nav-link collapse">
                   Дерево данных
@@ -239,7 +257,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconType />
+                  <IconType size="xs" />
                 </div>
                 <a href="#!" className="nav-link collapse">
                   Формы
@@ -255,7 +273,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconSettings />
+                  <IconSettings size="xs" />
                 </div>
                 <p className="nav-link collapse">Сервис</p>
               </div>
@@ -276,7 +294,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconIpadStroked />
+                  <IconIpadStroked size="xs" />
                 </div>
                 <a href="#!" className="nav-link collapse">
                   Лейауты
@@ -293,7 +311,7 @@ const NavbarLayout = (props) => {
             label={
               <div className="flex items-center">
                 <div className="nav-list__icon">
-                  <IconAdd />
+                  <IconAdd size="xs" />
                 </div>
                 <a href="#!" className="nav-link collapse">
                   Заказать модуль
@@ -323,7 +341,7 @@ const NavbarLayout = (props) => {
         />
       </div>
     </div>
-  )
+  );
 }
 
 export default NavbarLayout

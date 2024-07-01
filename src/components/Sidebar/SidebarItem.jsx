@@ -9,13 +9,13 @@ import { Link } from 'react-router-dom';
 import { extractDate } from '../../helpers/chatData';
 const SidebarItem = ({ item, onSelectChat }) => {
   const { id, avatarImg, name, msgTime, message, seen, type } = item;
-  
+  console.log(type, 'type');
   return (
     <div className="sidebar-component">
       <div className="sidebar-items">
-        <Link to={`/messenger/${id}`} className="sidebar-item" onClick={() => onSelectChat(item)} >
+        <Link to={`/messenger/${type}/${id}`} className="sidebar-item" onClick={() => onSelectChat(item)} >
           <Avatar size='l' name={name} url={avatarImg} />
-          <div>
+          <div className='media-full'>
             <div className="sidebar-content">
               <Text className='user-name' view='primary'>{name}</Text>
               <Text className='chat-time' view='secondary'>{extractDate(msgTime)}</Text>

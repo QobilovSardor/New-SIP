@@ -2,7 +2,7 @@
   display: none;
 }
 .messenger-page .navbar-hidden.active {
-  display: block;
+  display: flex;
 }
 
 .sidebar {

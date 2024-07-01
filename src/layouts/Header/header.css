@@ -177,3 +177,9 @@
 .home .menu {
   border-bottom: 1px solid #00416633;
 }
+
+
+/* media query */
+@media screen and (max-width: 1024px) {
+  
+}

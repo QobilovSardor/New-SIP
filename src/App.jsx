@@ -1,45 +1,20 @@
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import routes from "./routes";
+import React from "react";
+import { AppRoutes } from "./routes";
 import { ShowNavProvider } from "./context/ShowNavContext";
 
 function App() {
-  // const [activeNav, setActiveNav] = useState(false);
-  // const [navbarHidden, setNavbarHidden] = useState(false);
-
-  // const handleToggleNav = () => {
-  //   setActiveNav(!activeNav);
-  // };
-
-  // const toggleHidden = () => {
-  //   setNavbarHidden(!navbarHidden);
-  // };
-
   return (
     <div className="wrapper">
       <ShowNavProvider>
-        <Routes>
+        {/* <Routes>
           <Route>
             {routes.map((routes, index) => {
               const { path, component: Component } = routes;
-              return (
-                <Route
-                  key={index}
-                  path={path}
-                  element={
-                    <Component
-                    // toggleHidden={toggleHidden}
-                    // navbarHidden={navbarHidden}
-                    // handleToggleNav={handleToggleNav}
-                    // activeNav={activeNav}
-                    // setActiveNav={setActiveNav}
-                    />
-                  }
-                />
-              );
+              return <Route key={index} path={path} element={<Component />} />;
             })}
           </Route>
-        </Routes>
+        </Routes> */}
+        <AppRoutes />
       </ShowNavProvider>
     </div>
   );

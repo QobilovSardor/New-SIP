@@ -13,3 +13,4 @@ export { default as OpenNavbarHeaderModern } from "./OpenNavbarHeaderModern";
 export { default as NavbarHeaderTwoPanelModern } from "./NavbarHeaderTwoPanelModern";
 export { default as NavbarLayout } from "./NavbarLayout";
 export { default as GptNavbar } from "./GptNavbar";
+export { default as MessengerNavbar } from "./MessengerNavbar";
