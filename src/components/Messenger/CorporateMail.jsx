@@ -12,10 +12,20 @@ import { IconReply } from "@consta/icons/IconReply";
 import { IconTrash } from "@consta/icons/IconTrash";
 import { IconKebab } from "@consta/icons/IconKebab";
 import { IconBackward } from "@consta/icons/IconBackward";
-import { extractDate } from "../../helpers/chatData";
+import { data, extractDate } from "../../helpers/chatData";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Mail = ({ selectedChat, show }) => {
+const Mail = ({ show }) => {
+  const { id } = useParams();
+  const selectedChat = data
+    .flatMap((chat) => chat.items)
+    .find((chatItem) => chatItem.id == id);
+
   const { name, msgTime, avatarImg } = selectedChat;
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/messenger");
+  };
 
   return (
     <div className={`mail-layout ${show ? "show" : ""}`}>
@@ -26,6 +36,7 @@ const Mail = ({ selectedChat, show }) => {
               size="xs"
               view="clear"
               iconLeft={IconBackward}
+              onClick={handleNavigate}
               className="media-block__btn"
             />
             <Avatar size="x" url={avatarImg} name={name} />

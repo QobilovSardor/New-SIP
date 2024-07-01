@@ -5,7 +5,7 @@ import { PersonalChat, Sidebar } from "../../components";
 import Mail from "../../components/Messenger/CorporateMail";
 import { data } from "../../helpers/chatData";
 import { ShowNavContext } from "../../context/ShowNavContext";
-import { useParams } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 
 const pagesLink = [
   {
@@ -20,7 +20,6 @@ const pagesLink = [
 
 const Messenger = () => {
   const [onSelectChat, setSelectedChat] = useState(null);
-  console.log(onSelectChat);
   const type = onSelectChat?.type;
   const { handleToggleNav, activeNav, toggleHidden } =
     useContext(ShowNavContext);
@@ -48,12 +47,10 @@ const Messenger = () => {
           setActiveNav={!activeNav}
         />
         <Sidebar onSelectChat={setSelectedChat} data={data} />
-        {onSelectChat &&
-          (type === "personal" ? (
-            <PersonalChat selectedChat={onSelectChat} show={!!onSelectChat} />
-          ) : (
-            <Mail selectedChat={onSelectChat} show={!!onSelectChat} />
-          ))}
+        <Routes>
+          <Route path="/personal/:id" element={<PersonalChat />} />
+          <Route path="/corporate/:id" element={<Mail />} />
+        </Routes>
       </div>
     </div>
   );

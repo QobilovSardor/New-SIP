@@ -206,6 +206,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Intro, Messenger } from "./pages";
 import { PersonalChat } from "./components";
+import Mail from "./components/Messenger/CorporateMail";
 
 export const AppRoutes = () => (
   <Routes>
@@ -216,7 +217,8 @@ export const AppRoutes = () => (
 );
 const routes = [
   { path: "/", element: <Intro /> },
-  { path: "/messenger", element: <Messenger /> },
-  { path: "/messenger/personal/:id", element: <PersonalChat /> },
-  { path: "/messenger/corporate/:id", element: <PersonalChat /> },
+  {
+    path: "/messenger/*",
+    element: <Messenger />,
+  },
 ];

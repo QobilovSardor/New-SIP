@@ -15,6 +15,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .media-block__btn {
+    display: none;
+  }
 }
 .avatar-box {
   gap: 8px;
@@ -232,7 +236,6 @@
     position: absolute;
     width: 100% !important;
     z-index: 30;
-    background: red;
     left: -100%;
     display: flex !important;
     border: none !important;
@@ -271,7 +274,6 @@
   }
   .mail-layout,
   .personal-chat {
-    display: none;
     position: absolute;
     z-index: 20;
     background: #fff;
@@ -280,6 +282,9 @@
     &.show {
       display: flex;
     }
+  }
+  .mail-header .media-block__btn {
+    display: inline-flex;
   }
 }
 

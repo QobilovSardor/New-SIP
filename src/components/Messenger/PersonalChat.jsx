@@ -15,7 +15,6 @@ const PersonalChat = ({ show }) => {
     .flatMap((group) => group.items)
     .find((item) => item.id == id);
 
-  console.log(selectedChat, "topildi id");
   const { name, avatarImg } = selectedChat;
   const navigate = useNavigate();
   const handleNavigate = () => {
